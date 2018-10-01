@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-project';
+  currentRout = 'recipe';
+
+  handleNavigate(route: string) {
+    this.currentRout = route;
+  }
 }

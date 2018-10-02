@@ -1,4 +1,5 @@
-import { Recipe } from './recipe.model';
+import { RecipeService } from './../../shared/services/recipe.service';
+import { Recipe } from '../../shared/models/recipe.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,19 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipesComponent implements OnInit {
 
-  detailCollapsed = false;
+  // detailCollapsed = false;
   selectedRecipe: Recipe;
 
-  toggleRecipesDetail(recipe: Recipe) {
-    this.selectedRecipe = recipe;
-    if (recipe === this.selectedRecipe) {
-      this.detailCollapsed = !this.detailCollapsed;
-    }
-  }
-
-  constructor() { }
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipeService.recipeSelected
+      .subscribe((recipe: Recipe) => {
+        this.selectedRecipe = recipe;
+      });
   }
 
 }

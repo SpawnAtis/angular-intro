@@ -9,6 +9,7 @@ import { Ingredient } from '../models/ingredient.model';
 export class RecipeService {
   private recipes: Recipe[] = [
     new Recipe(
+      1,
       'Burger',
       'tasty',
       'https://c8.alamy.com/comp/PB838E/buchimgaekorean-pancake-PB838E.jpg',
@@ -18,6 +19,7 @@ export class RecipeService {
       ]
     ),
     new Recipe(
+      2,
       'Chicken',
       'funny',
       'https://c8.alamy.com/comp/PB838E/buchimgaekorean-pancake-PB838E.jpg',
@@ -34,6 +36,13 @@ export class RecipeService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipeById(recipeID: number) {
+    const recipe  = this.recipes.find(( { id } ) => {
+      return recipeID === id;
+    });
+    return recipe;
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {

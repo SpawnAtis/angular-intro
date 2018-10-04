@@ -14,8 +14,4 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSelect(route: string ) {
-    this.navigate.emit(route);
-  }
-
 }

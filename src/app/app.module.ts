@@ -1,3 +1,4 @@
+import { FeatureRoutingModule } from './app-routing.module';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -24,9 +25,10 @@ import { ShoppingEditComponent } from './_components/shopping-list/shopping-edit
     DropdownDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FeatureRoutingModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
